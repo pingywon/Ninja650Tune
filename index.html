@@ -1,0 +1,284 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ninja650Tune</title>
+<meta name="description" content="A preserved Power Commander V tuning archive for a 2020 Kawasaki Ninja 650 KRT — two map personalities, every byte accounted for.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%237ddf1e'/%3E%3Ctext x='32' y='42' font-family='Arial,sans-serif' font-size='26' font-weight='800' text-anchor='middle' fill='%2316181b'%3E650%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Saira+Condensed:wght@600;700&family=Saira:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --asphalt:#16181b;
+  --panel:#1d2024;
+  --line:#2c3035;
+  --paper:#eae8e1;
+  --dim:#a09e96;
+  --lime:#7ddf1e;
+  --butter:#ffd166;
+  --ember:#ff5c38;
+  --accent:var(--butter);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{
+  background:var(--asphalt);
+  color:var(--paper);
+  font-family:'Saira',system-ui,sans-serif;
+  font-size:17px;
+  line-height:1.6;
+}
+body[data-mode="rc"]{--accent:var(--ember)}
+a{color:var(--lime);text-decoration-thickness:1px;text-underline-offset:3px}
+a:hover{color:var(--paper)}
+.wrap{max-width:960px;margin:0 auto;padding:0 20px}
+h1,h2,.disp{font-family:'Saira Condensed',sans-serif;line-height:1.05}
+
+/* hero */
+header{padding:64px 0 40px;border-bottom:1px solid var(--line)}
+.flag{display:inline-block;background:var(--lime);color:var(--asphalt);
+  font-family:'Saira Condensed',sans-serif;font-weight:700;font-size:15px;
+  padding:3px 10px;transform:skewX(-10deg);margin-bottom:18px}
+.flag span{display:inline-block;transform:skewX(10deg)}
+h1{font-size:clamp(52px,9vw,96px);font-weight:700;letter-spacing:-.01em}
+h1 .six{color:var(--lime)}
+.tag{font-size:clamp(19px,3vw,24px);color:var(--dim);max-width:34ch;margin-top:10px}
+.tag b{color:var(--paper);font-weight:600}
+
+/* the switch */
+.garage{padding:46px 0;border-bottom:1px solid var(--line)}
+.bench{display:flex;flex-wrap:wrap;gap:36px;align-items:flex-start}
+.switch-col{flex:0 0 auto}
+.switch-note{color:var(--dim);font-size:14px;max-width:24ch;margin-top:12px}
+.rocker{display:flex;flex-direction:column;border:2px solid var(--line);border-radius:14px;overflow:hidden;background:var(--panel);width:180px}
+.rocker button{
+  appearance:none;border:0;background:transparent;color:var(--dim);cursor:pointer;
+  font-family:'Saira Condensed',sans-serif;font-size:22px;font-weight:700;letter-spacing:.04em;
+  padding:16px 10px 12px;text-align:left;position:relative;transition:background .15s,color .15s;
+}
+.rocker button small{display:block;font-family:'Saira',sans-serif;font-size:12px;font-weight:500;letter-spacing:0;color:inherit;opacity:.75}
+.rocker button[aria-pressed="true"]{background:var(--accent);color:var(--asphalt)}
+.rocker button:focus-visible{outline:3px solid var(--lime);outline-offset:-3px;z-index:1}
+.rocker button + button{border-top:2px solid var(--line)}
+
+.persona{flex:1 1 320px;min-width:280px}
+.persona h2{font-size:clamp(34px,5vw,48px);color:var(--accent)}
+.persona .sub{color:var(--dim);margin:6px 0 14px}
+.persona p{max-width:52ch}
+.persona .verdict{margin-top:14px;font-size:15px;color:var(--dim)}
+.persona .verdict b{color:var(--paper);font-weight:600}
+
+/* grid */
+.mapbox{margin-top:38px}
+.mapbox h3{font-family:'Saira Condensed',sans-serif;font-size:22px;font-weight:600;margin-bottom:4px}
+.mapbox .legend{font-size:14px;color:var(--dim);margin-bottom:14px}
+.mapbox .legend i{display:inline-block;width:11px;height:11px;background:var(--accent);border-radius:2px;vertical-align:-1px;margin-right:6px;font-style:normal}
+#grid{width:100%;height:auto;display:block;background:var(--panel);border:1px solid var(--line);border-radius:10px}
+.axis{font-size:13px;color:var(--dim);display:flex;justify-content:space-between;margin-top:6px}
+.yaxis{font-size:13px;color:var(--dim);margin-bottom:4px}
+
+/* stats */
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:12px;overflow:hidden;margin:46px 0}
+.stat{background:var(--panel);padding:20px 18px}
+.stat .n{font-family:'Saira Condensed',sans-serif;font-size:44px;font-weight:700;color:var(--lime);line-height:1}
+.stat .l{color:var(--dim);font-size:14px;margin-top:6px}
+
+/* sections */
+section{padding:46px 0;border-bottom:1px solid var(--line)}
+section h2{font-size:clamp(30px,4.5vw,40px);margin-bottom:16px}
+section p{max-width:62ch;margin-bottom:12px}
+section p:last-child{margin-bottom:0}
+.spec{list-style:none;max-width:62ch}
+.spec li{padding:10px 0;border-bottom:1px dashed var(--line);display:flex;gap:16px;justify-content:space-between;flex-wrap:wrap}
+.spec li:last-child{border-bottom:0}
+.spec .k{color:var(--dim)}
+pre{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:16px 18px;overflow-x:auto;font-size:14.5px;line-height:1.8;max-width:62ch}
+code{font-family:ui-monospace,'Cascadia Mono',Menlo,Consolas,monospace}
+pre .c{color:var(--dim)}
+.cta{display:inline-block;background:var(--lime);color:var(--asphalt);font-family:'Saira Condensed',sans-serif;
+  font-size:20px;font-weight:700;letter-spacing:.03em;padding:12px 26px;border-radius:8px;text-decoration:none;margin-top:8px}
+.cta:hover{background:var(--paper);color:var(--asphalt)}
+.cta:focus-visible{outline:3px solid var(--paper);outline-offset:2px}
+
+/* footer */
+footer{padding:36px 0 48px;color:var(--dim);font-size:14px}
+footer p{max-width:70ch;margin-bottom:8px}
+
+@media (max-width:560px){
+  header{padding:44px 0 30px}
+  .bench{gap:24px}
+}
+@media (prefers-reduced-motion:no-preference){
+  #grid rect.on{transition:fill .35s}
+}
+</style>
+</head>
+<body data-mode="so">
+
+<header>
+  <div class="wrap">
+    <div class="flag"><span>2020 Kawasaki Ninja 650 KRT</span></div>
+    <h1>Ninja<span class="six">650</span>Tune</h1>
+    <p class="tag">One bike. Two personalities. <b>Every byte accounted for.</b></p>
+  </div>
+</header>
+
+<div class="garage">
+  <div class="wrap">
+    <div class="bench">
+      <div class="switch-col">
+        <div class="rocker" role="group" aria-label="Map switch">
+          <button id="btn-so" aria-pressed="true">OUT<small>Map 1 — SmoothOperator</small></button>
+          <button id="btn-rc" aria-pressed="false">IN<small>Map 2 — RiceCrispy</small></button>
+        </div>
+        <p class="switch-note">The real handlebar switch convention, straight from the repo. Flip it.</p>
+      </div>
+
+      <div class="persona">
+        <h2 id="p-name">SmoothOperator</h2>
+        <p class="sub" id="p-sub">The daily map. Butter.</p>
+        <p id="p-body">Built for driveability: v1.3 nudges exactly 25 fuel cells up by +1 over the
+        owner-accepted v1.0 rollback — mid-throttle, mid-revs, right where commuting lives.
+        Ignition untouched.</p>
+        <p class="verdict" id="p-verdict"><b>Status:</b> SO v1.0 is the accepted known-good rollback; v1.3 is the latest recovered experiment.</p>
+      </div>
+    </div>
+
+    <div class="mapbox">
+      <h3 id="g-title">Where SmoothOperator v1.3 touches the table</h3>
+      <p class="legend"><i></i><span id="g-legend">25 of 440 fuel cells, each +1 — real data from the repo's diff CSVs</span></p>
+      <p class="yaxis">Throttle position, 0–100%</p>
+      <svg id="grid" viewBox="0 0 880 220" preserveAspectRatio="xMidYMid meet" aria-label="Fuel table heatmap, 44 RPM columns by 10 throttle rows"></svg>
+      <p class="axis"><span>500 RPM</span><span>Engine speed</span><span>11,250 RPM</span></p>
+    </div>
+
+    <div class="stats">
+      <div class="stat"><div class="n">440</div><div class="l">fuel cells per map (44 RPM × 10 TPS)</div></div>
+      <div class="stat"><div class="n">25</div><div class="l">cells changed in SO v1.3, every one +1</div></div>
+      <div class="stat"><div class="n">67</div><div class="l">cells richened for RiceCrispy's decel burble</div></div>
+      <div class="stat"><div class="n">23</div><div class="l">dated device backups preserved for comparison</div></div>
+    </div>
+  </div>
+</div>
+
+<section>
+  <div class="wrap">
+    <h2>The machine</h2>
+    <ul class="spec">
+      <li><span class="k">Bike</span><span>2020 Kawasaki Ninja 650 KRT Edition</span></li>
+      <li><span class="k">Brain</span><span>Dynojet Power Commander V, part 17-083</span></li>
+      <li><span class="k">Exhaust</span><span>Yoshimura full system, DB killer removed</span></li>
+      <li><span class="k">Intake</span><span>DNA replacement air filter, factory O2 sensor retained</span></li>
+      <li><span class="k">AutoTune</span><span>None — every number here was placed by a human</span></li>
+    </ul>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2>Digital archaeology</h2>
+    <p>These maps were nearly lost. The project was rebuilt from recovered <code>.pvm</code> device
+    captures, original change records, and 23 dated software backups — then reconciled into a clean
+    version history with a SHA-256 manifest for every file.</p>
+    <p>It's honest about the gaps, too: two cumulative ZIPs from August 15, 2026 are still missing,
+    a later rename gave two different maps the same "RC v1.0" label (untangled in the docs), and no
+    file gets promoted to "known good" without the paper trail to back it.</p>
+    <p>Published copies were scrubbed of local paths and device identifiers hiding in unused notes
+    bytes — original length, tables, and axes preserved, every changed offset recorded.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2>Kick the tires</h2>
+    <p>A small Python toolkit (3.10+, zero dependencies) inspects, diffs, verifies, and packages the
+    whole collection:</p>
+    <pre><code><span class="c"># check every hash in the manifest</span>
+python tools/pcv.py verify
+<span class="c"># what did v1.3 actually change?</span>
+python tools/pcv.py diff maps/smooth-operator/SO_v1.0_KNOWN_GOOD.pvm \
+                         maps/smooth-operator/SO_v1.3_TEST.pvm
+<span class="c"># reproducible cumulative archive</span>
+python tools/pcv.py build</code></pre>
+    <a class="cta" href="https://github.com/pingywon/Ninja650Tune">Browse the repo on GitHub</a>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <p>This is an archive of a tuning project, not an instruction to load anything. Maps still
+    require review in official Dynojet software and verification on the intended controller.
+    Independent project; not affiliated with Dynojet, Kawasaki, Yoshimura, or DNA.</p>
+    <p><a href="https://github.com/pingywon/Ninja650Tune">Repository</a> —
+       <a href="https://github.com/pingywon/Ninja650Tune/releases">Releases</a> —
+       page <span id="ver"></span></p>
+  </div>
+</footer>
+
+<script>
+const VERSION='1.0.0';
+document.getElementById('ver').textContent='v'+VERSION;
+
+// real changed-cell data from the repo's CSVs: [rpm, tps%, delta]
+const SO=[[3250,15,1],[3500,15,1],[3500,20,1],[3750,15,1],[3750,20,1],[4000,15,1],[4000,20,1],[4250,15,1],[4250,20,1],[4500,15,1],[4500,20,1],[4750,15,1],[4750,20,1],[5000,15,1],[5000,20,1],[5250,15,1],[5250,20,1],[5500,15,1],[5500,20,1],[5750,40,1],[5750,60,1],[6000,40,1],[6000,60,1],[6250,40,1],[6250,60,1]];
+const RC=[[2500,0,5],[2750,0,10],[2750,2,4],[3000,0,16],[3000,2,8],[3000,5,3],[3250,0,22],[3250,2,12],[3250,5,5],[3500,0,28],[3500,2,16],[3500,5,7],[3750,0,32],[3750,2,18],[3750,5,9],[4000,0,35],[4000,2,18],[4000,5,9],[4250,0,35],[4250,2,18],[4250,5,9],[4500,0,35],[4500,2,18],[4500,5,9],[4750,0,35],[4750,2,18],[4750,5,9],[5000,0,35],[5000,2,18],[5000,5,9],[5250,0,35],[5250,2,18],[5250,5,9],[5500,0,35],[5500,2,18],[5500,5,9],[5750,0,35],[5750,2,18],[5750,5,9],[6000,0,35],[6000,2,18],[6000,5,9],[6250,0,32],[6250,2,16],[6250,5,8],[6500,0,32],[6500,2,16],[6500,5,8],[6750,0,28],[6750,2,14],[6750,5,7],[7000,0,24],[7000,2,12],[7000,5,6],[7250,0,20],[7250,2,10],[7250,5,5],[7500,0,16],[7500,2,8],[7500,5,4],[7750,0,12],[7750,2,5],[7750,5,3],[8000,0,8],[8000,2,3],[8000,5,2],[8250,0,4]];
+const TPS=[0,2,5,10,15,20,40,60,80,100];          // 10 columns of the PCV table
+const RPMS=Array.from({length:44},(_,i)=>500+i*250); // 44 rows, 500–11,250
+
+const COPY={
+  so:{name:'SmoothOperator',sub:'The daily map. Butter.',
+    body:'Built for driveability: v1.3 nudges exactly 25 fuel cells up by +1 over the owner-accepted v1.0 rollback — mid-throttle, mid-revs, right where commuting lives. Ignition untouched.',
+    verdict:'<b>Status:</b> SO v1.0 is the accepted known-good rollback; v1.3 is the latest recovered experiment.',
+    title:'Where SmoothOperator v1.3 touches the table',
+    legend:'25 of 440 fuel cells, each +1 — real data from the repo’s diff CSVs'},
+  rc:{name:'RiceCrispy',sub:'The decel map. Snap, crackle, pop.',
+    body:'A historical experiment in deceleration sound: 67 cells richened at closed and barely-open throttle (0, 2 and 5% TPS), up to +35 at full decel — fuel dumped exactly where the Yoshimura turns it into fireworks.',
+    verdict:'<b>Status:</b> no RC map is recorded as accepted known good. It’s preserved, not endorsed.',
+    title:'Where RiceCrispy richens the table',
+    legend:'67 of 440 fuel cells, up to +35 on closed throttle — real data from the repo’s diff CSVs'}
+};
+
+const svg=document.getElementById('grid');
+const NS='http://www.w3.org/2000/svg';
+const W=880,H=220,cw=W/44,ch=H/10;
+const cells={};
+for(let c=0;c<44;c++)for(let r=0;r<10;r++){
+  const rect=document.createElementNS(NS,'rect');
+  rect.setAttribute('x',c*cw+1);rect.setAttribute('y',(9-r)*ch+1); // TPS 0 at bottom
+  rect.setAttribute('width',cw-2);rect.setAttribute('height',ch-2);
+  rect.setAttribute('rx',2);rect.setAttribute('fill','#26292e');
+  svg.appendChild(rect);
+  cells[RPMS[c]+'_'+TPS[r]]=rect;
+}
+function paint(mode){
+  const data=mode==='so'?SO:RC;
+  const base=mode==='so'?[255,209,102]:[255,92,56];
+  const maxD=Math.max(...data.map(d=>d[2]));
+  for(const k in cells){cells[k].setAttribute('fill','#26292e');cells[k].classList.remove('on')}
+  for(const[rpm,tps,delta]of data){
+    const el=cells[rpm+'_'+tps];if(!el)continue;
+    const t=0.45+0.55*(delta/maxD);
+    el.setAttribute('fill',`rgba(${base[0]},${base[1]},${base[2]},${t.toFixed(2)})`);
+    el.classList.add('on');
+  }
+}
+function setMode(mode){
+  document.body.dataset.mode=mode;
+  document.getElementById('btn-so').setAttribute('aria-pressed',mode==='so');
+  document.getElementById('btn-rc').setAttribute('aria-pressed',mode==='rc');
+  const c=COPY[mode];
+  document.getElementById('p-name').textContent=c.name;
+  document.getElementById('p-sub').textContent=c.sub;
+  document.getElementById('p-body').textContent=c.body;
+  document.getElementById('p-verdict').innerHTML=c.verdict;
+  document.getElementById('g-title').textContent=c.title;
+  document.getElementById('g-legend').textContent=c.legend;
+  paint(mode);
+}
+document.getElementById('btn-so').addEventListener('click',()=>setMode('so'));
+document.getElementById('btn-rc').addEventListener('click',()=>setMode('rc'));
+paint('so');
+</script>
+</body>
+</html>
