@@ -1,0 +1,30 @@
+{
+  "package": "Ninja650_Forked_SO_v1.3_RC_v1.0",
+  "stock_baseline": "STOCK/00_STOCK_BASELINE_2020_NINJA650_PCV5_NO_AUTOTUNE.pvm",
+  "smooth_operator": {
+    "known_good": "SmoothOperator/KNOWN_GOOD/SO_v1.0_KNOWN_GOOD.pvm",
+    "current_test": "SmoothOperator/CURRENT/SO_v1.3_TEST.pvm"
+  },
+  "rice_crispy": {
+    "known_good": null,
+    "current_test": "RiceCrispy/CURRENT/RC_v1.0_TEST.pvm",
+    "base_map": "SO v1.0 Known Good",
+    "changed_fuel_cells": 40,
+    "changed_tps_columns": [
+      0,
+      2
+    ],
+    "rpm_test_range": [
+      3000,
+      8000
+    ]
+  },
+  "pvm_file_size_bytes": 1648,
+  "autotune_target_afr_tables": false,
+  "checksums": {
+    "STOCK/00_STOCK_BASELINE_2020_NINJA650_PCV5_NO_AUTOTUNE.pvm": "3972552c26e0bb3523a81760abdcd4d5ba1c67d2956d87361ce3141739da17a6",
+    "SmoothOperator/KNOWN_GOOD/SO_v1.0_KNOWN_GOOD.pvm": "75ceaf3e20e2b611a9387b54af4bde91632b98dc4a6311e4c2b877a20f31ae67",
+    "SmoothOperator/CURRENT/SO_v1.3_TEST.pvm": "2319f3fd62451f4aee58b4cd0dbaccec5f6c2b4adc6f97fecb5fe572e131a5b2",
+    "RiceCrispy/CURRENT/RC_v1.0_TEST.pvm": "3c5200e55e21f9f5c4f4c90d93d3b41844be8e913b5ff15484329200294cdf9c"
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "package_version": "SmoothOP v1.0.0",
+  "baseline_sha256": "d6259388eb1a35981cd1caea08f447816f7a3a1eb7317ddce65d0133a87d17dc",
+  "smoothop_sha256": "dcedd77b8084de559a96247807839552e8d4a7ada34af6d76a3a4452181c2993",
+  "baseline_size": 1828,
+  "smoothop_size": 1828,
+  "changed_fuel_cells": 111,
+  "max_positive_delta": 2,
+  "max_negative_delta": 0,
+  "final_fuel_min": -7,
+  "final_fuel_max": 11,
+  "ignition_unchanged": true,
+  "target_afr_unchanged": true,
+  "grid_unchanged": true,
+  "unexpected_binary_changes": 0,
+  "changed_binary_offsets_total": 281,
+  "fuel_table_offset_hex": "0xfc",
+  "notes_offset_hex": "0x624"
+}

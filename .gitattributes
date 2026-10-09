@@ -1,0 +1,9 @@
+*.pvm binary
+*.zip binary
+*.py text eol=lf
+*.md text eol=lf
+*.yml text eol=lf
+manifest.json text eol=lf
+data/*.csv text eol=lf
+# Source CSV/TXT/JSON documents retain their original bytes and hashes.
+archive/** -text

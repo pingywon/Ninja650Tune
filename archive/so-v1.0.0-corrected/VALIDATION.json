@@ -1,0 +1,15 @@
+{
+  "package_version": "SmoothOP v1.0.0",
+  "correction": "Target AFR/AutoTune table removed; fuel tune unchanged",
+  "stock_baseline_sha256": "d6259388eb1a35981cd1caea08f447816f7a3a1eb7317ddce65d0133a87d17dc",
+  "corrected_smoothop_sha256": "97cd4bde4ad9c63e74de534363dd3828b16cdb7f7414fcecf0f5011f3bfeb1b0",
+  "corrected_map_size": 1648,
+  "pcv_retrieved_template_size": 1648,
+  "table_descriptor_count": 4,
+  "target_afr_descriptor_absent": true,
+  "target_afr_data_absent": true,
+  "fuel_table_identical_to_original_smoothop_v1_0_0": true,
+  "changed_fuel_cells_vs_stock": 111,
+  "ignition_identical_to_stock": true,
+  "unexpected_binary_changes_vs_pcv_template": 0
+}

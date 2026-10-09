@@ -1,0 +1,41 @@
+rpm,tps_percent,so_v1_0_value,rc_v1_0_value,delta,reason
+3000,0,0,3,3,Closed-throttle deceleration enrichment for burble/crackle testing
+3000,2,0,1,1,Light-throttle deceleration transition support
+3250,0,0,4,4,Closed-throttle deceleration enrichment for burble/crackle testing
+3250,2,0,2,2,Light-throttle deceleration transition support
+3500,0,0,5,5,Closed-throttle deceleration enrichment for burble/crackle testing
+3500,2,0,3,3,Light-throttle deceleration transition support
+3750,0,0,6,6,Closed-throttle deceleration enrichment for burble/crackle testing
+3750,2,0,3,3,Light-throttle deceleration transition support
+4000,0,0,7,7,Closed-throttle deceleration enrichment for burble/crackle testing
+4000,2,0,3,3,Light-throttle deceleration transition support
+4250,0,0,7,7,Closed-throttle deceleration enrichment for burble/crackle testing
+4250,2,0,3,3,Light-throttle deceleration transition support
+4500,0,0,7,7,Closed-throttle deceleration enrichment for burble/crackle testing
+4500,2,0,3,3,Light-throttle deceleration transition support
+4750,0,0,7,7,Closed-throttle deceleration enrichment for burble/crackle testing
+4750,2,0,3,3,Light-throttle deceleration transition support
+5000,0,0,7,7,Closed-throttle deceleration enrichment for burble/crackle testing
+5000,2,0,3,3,Light-throttle deceleration transition support
+5250,0,0,7,7,Closed-throttle deceleration enrichment for burble/crackle testing
+5250,2,0,3,3,Light-throttle deceleration transition support
+5500,0,0,7,7,Closed-throttle deceleration enrichment for burble/crackle testing
+5500,2,0,3,3,Light-throttle deceleration transition support
+5750,0,0,7,7,Closed-throttle deceleration enrichment for burble/crackle testing
+5750,2,0,3,3,Light-throttle deceleration transition support
+6000,0,0,7,7,Closed-throttle deceleration enrichment for burble/crackle testing
+6000,2,0,3,3,Light-throttle deceleration transition support
+6250,0,0,7,7,Closed-throttle deceleration enrichment for burble/crackle testing
+6250,2,0,3,3,Light-throttle deceleration transition support
+6500,0,0,7,7,Closed-throttle deceleration enrichment for burble/crackle testing
+6500,2,0,3,3,Light-throttle deceleration transition support
+6750,0,0,6,6,Closed-throttle deceleration enrichment for burble/crackle testing
+6750,2,0,2,2,Light-throttle deceleration transition support
+7000,0,0,6,6,Closed-throttle deceleration enrichment for burble/crackle testing
+7000,2,0,2,2,Light-throttle deceleration transition support
+7250,0,0,6,6,Closed-throttle deceleration enrichment for burble/crackle testing
+7250,2,0,2,2,Light-throttle deceleration transition support
+7500,0,0,5,5,Closed-throttle deceleration enrichment for burble/crackle testing
+7500,2,0,1,1,Light-throttle deceleration transition support
+7750,0,0,3,3,Closed-throttle deceleration enrichment for burble/crackle testing
+8000,0,0,2,2,Closed-throttle deceleration enrichment for burble/crackle testing
